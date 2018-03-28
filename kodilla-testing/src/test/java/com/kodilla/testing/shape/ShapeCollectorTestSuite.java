@@ -57,7 +57,7 @@ public class ShapeCollectorTestSuite {
         shapeCollector.removeFigure(circle);
 
         //Then
-        Assert.assertEquals(squere, shapeCollector.getFigure(0));
+        Assert.assertEquals(null, shapeCollector.getFigure(3));
     }
 
     @Test
