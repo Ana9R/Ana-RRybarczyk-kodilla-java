@@ -2,7 +2,6 @@ package com.kodilla.stream.forumuser;
 
 import java.time.LocalDate;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamMain {
