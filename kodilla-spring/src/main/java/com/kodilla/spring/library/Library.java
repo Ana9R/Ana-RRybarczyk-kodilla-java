@@ -11,13 +11,11 @@ public final class Library {
     private final List<String> books = new ArrayList<>();
     private LibraryDbController libraryDbController;
 
-    //@Autowired
     public Library(final LibraryDbController libraryDbController) {
         this.libraryDbController = libraryDbController;
     }
 
     public Library() {
-        // do nothing
     }
 
     public void saveToDb() {
