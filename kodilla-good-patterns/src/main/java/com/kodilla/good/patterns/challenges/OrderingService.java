@@ -1,14 +1,12 @@
 package com.kodilla.good.patterns.challenges;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class OrderingService {
+public interface OrderingService {
 
+    void addProduct(String product);
+    void addProducts(List<String> products);
+    void deleteProduct(String product);
+    List<String> order();
 
-    public void order(ShoppingBasket basket) {
-        List<String> a = basket.getProducts();
-        System.out.println("Zamawiam produkty:" + a);
-    }
-
-  }
+}

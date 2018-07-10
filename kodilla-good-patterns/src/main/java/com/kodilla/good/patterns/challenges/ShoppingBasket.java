@@ -10,6 +10,10 @@ public class ShoppingBasket {
         products.add(productToAdd);
     }
 
+    public void addProducts(List<String> productsToAdd) {
+        products.addAll(productsToAdd);
+    }
+
     public void deleteProduct(String productToDelete) {
         products.remove(productToDelete);
     }
