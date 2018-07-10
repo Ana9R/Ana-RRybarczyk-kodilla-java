@@ -1,13 +1,13 @@
 package com.kodilla.hibernate.invoice;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
-//@Entity
-//@Table(name = "PRODUCTS")
+@Entity
+@Table(name = "PRODUCTS")
 public class Product {
-    int id;
-    String name;
+    private int id;
+    private String name;
 
     public Product() {
     }
@@ -16,10 +16,15 @@ public class Product {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue
+    @NotNull
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
+    @Column(name = "NAME")
     public String getName() {
         return name;
     }

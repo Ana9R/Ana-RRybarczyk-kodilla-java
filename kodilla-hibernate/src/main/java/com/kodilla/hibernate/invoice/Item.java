@@ -1,46 +1,63 @@
 package com.kodilla.hibernate.invoice;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-//@Entity
-//@Table(name = "ITEMS")
+@Entity
+@Table(name = "ITEMS")
 public class Item {
-    int id;
-    Product product;
-    BigDecimal price;
-    int quantity;
-    BigDecimal value;
+    private int id;
+    private Product product;
+    private BigDecimal price;
+    private int quantity;
+    private BigDecimal value;
+    private Invoice invoice;
 
     public Item() {
     }
 
-    public Item(int quantity){
+    public Item(int quantity) {
         this.quantity = quantity;
     }
 
+    @Id
+    @GeneratedValue
+    @NotNull
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
 
+    @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
     }
 
+    @Column(name = "QUANTITY")
     public int getQuantity() {
         return quantity;
     }
 
+    @Column(name = "VALUE")
     public BigDecimal getValue() {
         return value;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "INVOICE_ID")
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 
     public void setId(int id) {
