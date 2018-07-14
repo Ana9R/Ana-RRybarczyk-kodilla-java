@@ -95,6 +95,34 @@ public class CompanyDaoTestSuite {
     }
 
     @Test
+    public void testCompanyDao_findCompaniesWithNameContaining() {
+        //Given
+        Company company1 = new Company("Amaranda");
+        Company company2 = new Company("Clarine");
+        Company company3 = new Company("Amigos");
+        Company company4 = new Company("Amarando");
+
+        companyDao.save(company1);
+        companyDao.save(company2);
+        companyDao.save(company3);
+        companyDao.save(company4);
+
+        //When
+        List<Company> companies = companyDao.findCompaniesWithNameContaining("aran");
+
+        //Then
+        try {
+            Assert.assertEquals(2, companies.size());
+        } finally {
+            //CleanUp
+            companyDao.deleteById(company1.getId());
+            companyDao.deleteById(company2.getId());
+            companyDao.deleteById(company3.getId());
+            companyDao.deleteById(company4.getId());
+        }
+    }
+
+    @Test
     public void testEmployeeDao_findEmployeesBylastname() {
         //Given
         Employee employee1 = new Employee("Jan", "Kowalski");
@@ -121,6 +149,35 @@ public class CompanyDaoTestSuite {
             employeeDao.deleteById(employee4.getId());
         }
     }
+
+    @Test
+    public void testEmployeeDao_findEmployeesWithLastnameContaining() {
+        //Given
+        Employee employee1 = new Employee("Jan", "Kowalski");
+        Employee employee2 = new Employee("Krzysztof", "Kowalski");
+        Employee employee3 = new Employee("Michał", "Brzeski");
+        Employee employee4 = new Employee("Hilary", "Nowak");
+
+        employeeDao.save(employee1);
+        employeeDao.save(employee2);
+        employeeDao.save(employee3);
+        employeeDao.save(employee4);
+
+        //When
+        List<Employee> employees = employeeDao.findEmployeesWithLastnameContaining("walsk");
+
+        //Then
+        try {
+            Assert.assertEquals(2, employees.size());
+        } finally {
+            //CleanUp
+            employeeDao.deleteById(employee1.getId());
+            employeeDao.deleteById(employee2.getId());
+            employeeDao.deleteById(employee3.getId());
+            employeeDao.deleteById(employee4.getId());
+        }
+    }
+
 }
 
 

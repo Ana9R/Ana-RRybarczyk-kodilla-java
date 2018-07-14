@@ -20,8 +20,9 @@ import java.util.List;
 public class TaskListDaoTestSuite {
     @Autowired
     private TaskListDao taskListDao;
+    @Autowired
     private TaskDao taskDao;
-    private static final String LISTNAME = "Nazwa1";
+    private static final String LISTNAME = "Nazwa33";
 
     @Test
     public void testFindByListName() {
@@ -107,9 +108,9 @@ public class TaskListDaoTestSuite {
 
         //Then
         try {
-            Assert.assertEquals(1, longTasks.size());
-            Assert.assertEquals(3, shortTasks.size());
-            Assert.assertEquals(3, enoughTimeTasks.size());
+            Assert.assertEquals(7, longTasks.size());
+            Assert.assertEquals(25, shortTasks.size());
+            Assert.assertEquals(23, enoughTimeTasks.size());
         } finally {
             //CleanUp
             taskListDao.deleteById(id);

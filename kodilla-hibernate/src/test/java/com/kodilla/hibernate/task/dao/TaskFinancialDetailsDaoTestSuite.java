@@ -21,12 +21,12 @@ public class TaskFinancialDetailsDaoTestSuite {
     public void testFindByPaid() {
         //Given
         TaskFinancialDetails taskFinancialDetails =
-                new TaskFinancialDetails(new BigDecimal(115), false);
+                new TaskFinancialDetails(new BigDecimal(115), true);
         taskFinancialDetailsDao.save(taskFinancialDetails);
         int id = taskFinancialDetails.getId();
 
         //When
-        List<TaskFinancialDetails> resultList = taskFinancialDetailsDao.findByPaid(false);
+        List<TaskFinancialDetails> resultList = taskFinancialDetailsDao.findByPaid(true);
 
         //Then
         Assert.assertEquals(1, resultList.size());
