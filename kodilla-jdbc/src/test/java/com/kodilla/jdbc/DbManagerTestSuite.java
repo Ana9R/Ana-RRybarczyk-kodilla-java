@@ -1,6 +1,7 @@
 package com.kodilla.jdbc;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.sql.Connection;
@@ -67,7 +68,6 @@ public class DbManagerTestSuite {
         }
         rs.close();
         statement.close();
-        connection.close();
         Assert.assertEquals(4, counter);
     }
 }
